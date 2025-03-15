@@ -17,6 +17,7 @@ In this project you will build such a pipeline.
   * [Pre-existing components](#pre-existing-components)
 
 Wandb Project Link: https://wandb.ai/agrear5-western-governors-university/nyc_airbnb?nw=nwuseragrear5
+GitHub Repository Link: https://github.com/noirXnyx/Project-Build-an-ML-Pipeline-Starter
 
 ## Preliminary steps
 
