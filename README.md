@@ -15,6 +15,7 @@ In this project you will build such a pipeline.
   * [The configuration](#the-configuration)
   * [Running the entire pipeline or just a selection of steps](#Running-the-entire-pipeline-or-just-a-selection-of-steps)
   * [Pre-existing components](#pre-existing-components)
+  * Wandb Project Link: https://wandb.ai/agrear5-western-governors-university/nyc_airbnb?nw=nwuseragrear5
 
 ## Preliminary steps
 
@@ -179,3 +180,4 @@ Please, make sure all steps are using **the same** python version and that you h
 ## License
 
 [License](LICENSE.txt)
+
