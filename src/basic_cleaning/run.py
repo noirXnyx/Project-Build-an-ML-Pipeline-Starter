@@ -13,13 +13,14 @@ logger = logging.getLogger()
 
 # DO NOT MODIFY
 def go(args):
+    
+    run = wandb.init(project = 'nyc_airbnb', group = 'basic_cleaning', job_type="basic_cleaning", save_code=True)
 
-    run = wandb.init(job_type="basic_cleaning")
     run.config.update(args)
 
-    # Download input artifact. This will also log that this script is using this
-    run = wandb.init(project="nyc_airbnb", group="basic_cleaning", save_code=True)
-    artifact_local_path = run.use_artifact(args.input_artifact).file()
+    # Download input artifact
+    artifact = run.use_artifact(args.input_artifact)
+    artifact_local_path = artifact.file()
     df = pd.read_csv(artifact_local_path)
     
     # Drop outliers
@@ -32,9 +33,10 @@ def go(args):
     df['last_review'] = pd.to_datetime(df['last_review'])
 
     # Step 6 - Fixing the error in testing new data
+    # This is in the rubric: Train the Model on a New Data Sample - NYC boundary
     idx = df['longitude'].between(-74.25, -73.50) & df['latitude'].between(40.5, 41.2)
     df = df[idx].copy()
-    # Step 6 - Fixing the error in testing new data
+
 
     # Save the cleaned file
     df.to_csv('clean_sample.csv',index=False)
@@ -47,6 +49,7 @@ def go(args):
  )
     artifact.add_file("clean_sample.csv")
     run.log_artifact(artifact)
+   
 
 
 # TODO: In the code below, fill in the data type for each argumemt. The data type should be str, float or int. 
